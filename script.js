@@ -4,13 +4,11 @@ class Clock {
     }
 
     render() {
-        setInterval(() => {
-            let time = new Date();
-            let hours = (time.getHours() < 10) ? '0' + time.getHours() : time.getHours();
-            let minutes = (time.getMinutes() < 10) ? '0' + time.getMinutes() : time.getMinutes();
-            let seconds = (time.getSeconds() < 10) ? '0' + time.getSeconds() : time.getSeconds(); 
-            document.getElementById('clockBlock').innerHTML = `${hours}:${minutes}` + `<span>:${seconds}</span>`;
-        }, 250);
+        this.time = new Date();
+        this.hours = (this.time.getHours() < 10) ? '0' + this.time.getHours() : this.time.getHours();
+        this.minutes = (this.time.getMinutes() < 10) ? '0' + this.time.getMinutes() : this.time.getMinutes();
+        this.seconds = (this.time.getSeconds() < 10) ? '0' + this.time.getSeconds() : this.time.getSeconds(); 
+        this.clock.innerHTML = `${this.hours}:${this.minutes}` + `<span>:${this.seconds}</span>`;
     }
 
     clickClock() {
@@ -27,6 +25,10 @@ class Clock {
     }
 }
 
-let clocks = new Clock();
+let time = document.getElementById('clockBlock');
+
+let clocks = new Clock(time);
 clocks.render();
 clocks.clickClock();
+
+setInterval(() => {clocks.render()}, 250);

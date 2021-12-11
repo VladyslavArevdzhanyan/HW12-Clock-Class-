@@ -24,7 +24,7 @@
     font-size: 15px;
     }
     
-    #btn:hover {
+#btn:hover {
     background-color: green;
     color: white;
-    }
+}
