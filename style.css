@@ -10,9 +10,6 @@
     align-items: center;
 }
 
-#clockBlock.remove span {
-    display: none;
-}
 
 #btn {
     width: 400px;
